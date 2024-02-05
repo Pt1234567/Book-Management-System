@@ -32,7 +32,7 @@
                     <a class="nav-link active text-white" aria-current="page" href="available_books">Available Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#">My Books</a>
+                    <a class="nav-link active text-white" aria-current="page" href="my_books">My Books</a>
                 </li>
 
             </ul>
@@ -75,7 +75,10 @@
                <td th:text="${b.name}"></td>
                <td th:text="${b.author}"></td>
                <td th:text="${b.price}"></td>
-               <td><a class="btn btn-primary btn-sm">Add To My Book</a> </td>
+               <td class="p-2"><a class="btn btn-primary btn-sm" th:href="@{/myList/{id}(id=${b.id})}">Add To My Book</a>
+                   <a aria-current="page" th:href="@{/edit/{id}(id=${b.id})}"><img src="/image/edit.png" width="20px"/></a>
+                   <a aria-current="page" th:href="@{/deleteFromAvailable/{id}(id=${b.id})}"><img src="/image/delete.png" width="20px"/></a>
+               </td>
            </tr>
            </tbody>
     </table>

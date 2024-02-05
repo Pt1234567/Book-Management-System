@@ -46,22 +46,6 @@
 </nav>
 
 
-<div class="container text-center my-5">
-    <h1>WELCOME TO MY BOOKSTORE</h1>
-    <br>
-    <h6>Books are like portals to other worlds, opening doors to realms of knowledge, imagination, and emotion. The feel
-        of the paper beneath one's fingers, the distinct aroma of ink on the pages – these sensory experiences are an
-        integral part of the magic that books exude. They are not just inanimate objects with words on pages; rather,
-        they are vessels of stories that transport readers to distant lands, introduce them to fascinating characters,
-        and provoke profound thoughts. In a world saturated with digital content, the physicality of a book holds a
-        unique charm, inviting readers to disconnect from screens and engage with a tangible, immersive experience. The
-        enduring magic of books lies not only in their ability to inform and entertain but also in their capacity to
-        evoke a sense of wonder and connection that transcends time and technological progress.
-    </h6>
-    <br><br>
-    <img src="/image/images.jpeg" width="360px"/>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -71,6 +55,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
+
+<div class="container my-5 col-md-6 ">
+
+    <table class="table table-striped ">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="b:${mybook}">
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.name}"></td>
+            <td th:text="${b.author}"></td>
+            <td th:text="${b.price}"></td>
+            <td><a aria-current="page" th:href="@{/deleteFromList/{id}(id=${b.id})}"><img src="/image/delete.png" width="20px"/></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
